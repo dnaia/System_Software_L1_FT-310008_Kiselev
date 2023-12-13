@@ -72,74 +72,10 @@ def start_message(message):
 
 
 def exception_checking(team):
-    #if team.upper() == "ДИНАМО":
-    #    choice = int(input("Уточните, какое Динамо?\n1-Динамо Мск\n2-Динамо Мн\n"))
-    #    if choice == 1:
-    #        return "ДИНАМО МСК"
-    #    elif choice == 2:
-    #        return 'ДИНАМО МН'
-    #else:
-        standardized_team_names = {
-            'АК БАРС': 'АК БАРС',
-            'АКБАРС': 'АК БАРС',
-            'КУНЬЛУНЬ': 'КУНЬЛУНЬ РЕД СТАР',
-            'КУНЬЛУНЬ РЕД СТАР': 'КУНЬЛУНЬ РЕД СТАР',
-            'КУНЬЛУНЬРЕДСТАР': 'КУНЬЛУНЬ РЕД СТАР',
-            'ДИНАМО МСК': 'ДИНАМО МСК',
-            'ДИНАМОМСК': 'ДИНАМО МСК',
-            'ДИНАМО МОСКВА': 'ДИНАМО МСК',
-            'ДИНАМОМОСКВА': 'ДИНАМО МСК',
-            'ДИНАМО МН': 'ДИНАМО МН',
-            'ДИНАМОМН': 'ДИНАМО МН',
-            'ДИНАМО МИНСК': 'ДИНАМО МН',
-            'ДИНАМОМИНСК': 'ДИНАМО МН',
-            'ЦСКА': 'ЦСКА',
-            'СКА': 'СКА',
-            'МЕТАЛЛУРГ': 'МЕТАЛЛУРГ МГ',
-            'МЕТАЛЛУРГ МГ': 'МЕТАЛЛУРГ МГ',
-            'МЕТАЛЛУРГМГ': 'МЕТАЛЛУРГ МГ',
-            'МЕТАЛЛУРГ МАГНИТОГОРСК': 'МЕТАЛЛУРГ МГ',
-            'МЕТАЛЛУРГМАГНИТОГОРСК': 'МЕТАЛЛУРГ МГ',
-            'САЛАВАТ': 'САЛАВАТ ЮЛАЕВ',
-            'САЛАВАТ ЮЛАЕВ': 'САЛАВАТ ЮЛАЕВ',
-            'САЛАВАТЮЛАЕВ': 'САЛАВАТ ЮЛАЕВ',
-            'СЮ': 'САЛАВАТ ЮЛАЕВ',
-            'АВТО': 'АВТОМОБИЛИСТ',
-            'АВТОМОБИЛИСТ': 'АВТОМОБИЛИСТ',
-            'ТРАКТОР': 'ТРАКТОР',
-            'СПАРТАК': 'СПАРТАК',
-            'ЛАДА': 'ЛАДА',
-            'АВАНГАРД': 'АВАНГАРД',
-            'ЛОКОМОТИВ': 'ЛОКОМОТИВ',
-            'ЛОКО': 'ЛОКОМОТИВ',
-            'ТОРПЕДО': 'ТОРПЕДО',
-            'СЕВЕРСТАЛЬ': 'СЕВЕРСТАЛЬ',
-            'АМУР': 'АМУР',
-            'НЕФТЕХИМИК': 'НЕФТЕХИМИК',
-            'СИБИРЬ': 'СИБИРЬ',
-            'СОЧИ': 'СОЧИ',
-            'ХК СОЧИ': 'СОЧИ',
-            'ХКСОЧИ': 'СОЧИ',
-            'БАРЫС': 'БАРЫС',
-            'ВИТЯЗЬ': 'ВИТЯЗЬ',
-            'АДМИРАЛ': 'АДМИРАЛ'
-        }
         return standardized_team_names.get(team.upper(), team)
 
 
 def find_team_rating(team_name):
-    '''
-    # team_row = df[df['Клуб'].str.upper() == team_name.upper()]
-    team_row = team_name.upper() in df['Клуб'].str.upper()
-    if not team_row.empty:
-        return team_row.iloc[0]['Рейтинг']
-    else:
-        return None
-    '''
-    import requests
-    from bs4 import BeautifulSoup
-    import pandas as pd
-
     url = "https://pribalt.info/hokkei/khl/tablica/chempionat"
     response = requests.get(url)
 
@@ -250,10 +186,6 @@ def save_command_two(message):
     #bot.delete_message(chat_id, message.message_id)
 
 def khl_table():
-    import requests
-    from bs4 import BeautifulSoup
-    import pandas as pd
-
     url = "https://pribalt.info/hokkei/khl/tablica/chempionat"
     response = requests.get(url)
 
